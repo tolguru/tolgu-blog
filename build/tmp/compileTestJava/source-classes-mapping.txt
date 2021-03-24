@@ -1,0 +1,2 @@
+com/tolgu/blog/springboot/web/HelloControllerTest.java
+ com.tolgu.blog.springboot.web.HelloControllerTest
