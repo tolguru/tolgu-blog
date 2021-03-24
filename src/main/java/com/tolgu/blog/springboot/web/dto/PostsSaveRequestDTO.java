@@ -4,22 +4,21 @@ import com.tolgu.blog.springboot.domain.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-
-import javax.servlet.http.HttpSession;
 
 @Getter // Setter은 만들지 않는다. 대신 명확한 목적을 지닌 메소드를 만들어 사용한다.
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class PostsSaveRequestDTO {
     private String title;
     private String content;
     private String author;
+    private Long authorID;
 
     @Builder
-    public PostsSaveRequestDTO(String title, String  content, String author) {
+    public PostsSaveRequestDTO(String title, String  content, String author, int views, int likes, Long authorID) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.authorID = authorID;
     }
 
     public Posts toEntity(Long authorID) { // 팩토리 메소드
@@ -27,8 +26,6 @@ public class PostsSaveRequestDTO {
                 .title(title)
                 .content(content)
                 .author(author)
-                .views(0)
-                .likes(0)
                 .authorID(authorID)
                 .build();
     }

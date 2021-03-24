@@ -34,8 +34,7 @@ public class PostsRepositoryTest {
                 .title(title)
                 .content(content)
                 .author("rnjsehdgks01@naver.com")
-                .views(0)
-                .likes(0)
+                .authorID(0L)
                 .build());
 
         //when
@@ -56,6 +55,7 @@ public class PostsRepositoryTest {
                 .title("title")
                 .content("content")
                 .author("author")
+                .authorID(0L)
                 .build());
 
         //when

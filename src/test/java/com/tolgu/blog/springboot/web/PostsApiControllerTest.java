@@ -69,21 +69,16 @@ public class PostsApiControllerTest {
                 .title(title)
                 .content(content)
                 .author("author")
+                .authorID(0L)
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts";
 
-        //when url에 DTO 보냈을 때(Controller가 PostsSaveRequestDTO 객체를 받음)
-//        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDTO, Long.class);
         mvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(requestDTO)))
                 .andExpect(status().isOk());
-        //then restTemplate.postForEntity만 해도 되는데 밑에 상태를 테스트하기 위해 반응 정보를 저장하는 ResponseEntity의 객체 생성
 
-//        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        assertThat(responseEntity.getBody()).isGreaterThan(0L);
-        // 위는 잘 보내졌냐?, 밑에는 성공적으로 올바른 값이 들어갔냐?
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
@@ -94,10 +89,11 @@ public class PostsApiControllerTest {
     public void Posts_수정된다() throws Exception {
         //given
         Posts savedPosts = postsRepository.save(Posts.builder()
-        .title("title")
-        .content("content")
-        .author("author")
-        .build());
+                .title("title")
+                .content("content")
+                .author("author")
+                .authorID(0L)
+                .build());
 
         Long updateId = savedPosts.getId(); // 생성된 Posts가 리턴되기 때문에 가능
         String expectedTitle = "title2";
@@ -112,17 +108,10 @@ public class PostsApiControllerTest {
 
         HttpEntity<PostsUpdateRequestDTO> requestEntity = new HttpEntity<>(requestDTO); // 뭔데 이게..
 
-        //when
-//        ResponseEntity<Long> responseEntity = restTemplate.
-//                exchange(url, HttpMethod.PUT, requestEntity, Long.class);
         mvc.perform(put(url)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(requestDTO)))
                 .andExpect(status().isOk());
-
-        //then
-//        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
