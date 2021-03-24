@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // URL 권한 관리 대상 설정, permitAll()은 전체 열람 권한 허용. 참고로 글쓰기는 허용 안했기 때문에 로그인해야 함
                 // hasRole(Role.USER.name())은 USER 권한을 가진 사람만 허용한다는 뜻
-                .antMatchers("/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
+                .antMatchers("/login", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                 // 설정된 URL을 제외한 나머지를 authenticated(인증된. 로그인한 사용자) 처리. 강제로 로그인 화면으로 이동됨..
                 .anyRequest().authenticated()
