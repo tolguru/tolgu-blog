@@ -18,30 +18,30 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = HelloController.class, excludeFilters = {
+@WebMvcTest(controllers = AccessController.class, excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class) })
-public class HelloControllerTest {
+public class AccessControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @WithMockUser(roles="USER")
     @Test
-    public void hello가_리턴된다() throws Exception {
-        String hello = "hello";
+    public void On_리턴() throws Exception {
+        String hello = "On";
 
-        mvc.perform(get("/hello"))
+        mvc.perform(get("/AccessTest"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
     }
 
     @WithMockUser(roles="USER")
     @Test
-    public void helloDTO가_리턴된다() throws Exception {
+    public void AccessDTO_리턴() throws Exception {
         String name = "KDH";
         int amount = 3;
 
-        mvc.perform(get("/hello/dto").param("name", name)
+        mvc.perform(get("/AccessTest/dto").param("name", name)
                                                 .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", is(name)))

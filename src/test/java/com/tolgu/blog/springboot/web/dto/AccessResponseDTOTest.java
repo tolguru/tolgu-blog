@@ -3,7 +3,7 @@ package com.tolgu.blog.springboot.web.dto;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HelloResponseDTOTest {
+public class AccessResponseDTOTest {
 
     @Test
     public void 롬복_기능_테스트() {
@@ -12,7 +12,7 @@ public class HelloResponseDTOTest {
         int amount = 1000;
 
         //when
-        HelloResponseDTO dto = new HelloResponseDTO(name, amount);
+        AccessResponseDTO dto = new AccessResponseDTO(name, amount);
 
         //then
         assertThat(dto.getName()).isEqualTo(name);
