@@ -34,6 +34,8 @@ public class PostsRepositoryTest {
                 .title(title)
                 .content(content)
                 .author("rnjsehdgks01@naver.com")
+                .views(0)
+                .likes(0)
                 .build());
 
         //when

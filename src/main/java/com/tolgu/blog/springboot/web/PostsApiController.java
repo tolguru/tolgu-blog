@@ -1,5 +1,7 @@
 package com.tolgu.blog.springboot.web;
 
+import com.tolgu.blog.springboot.config.auth.LoginUser;
+import com.tolgu.blog.springboot.config.auth.dto.SessionUser;
 import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.service.posts.PostsService;
 import com.tolgu.blog.springboot.web.dto.PostsResponseDTO;
@@ -15,8 +17,8 @@ public class PostsApiController {
     private final PostsService postsService;
 
     @PostMapping("/api/v1/posts")
-    public Long save(@RequestBody PostsSaveRequestDTO requestDTO) {
-        return postsService.save(requestDTO);
+    public Long save(@RequestBody PostsSaveRequestDTO requestDTO, @LoginUser SessionUser user) {
+        return postsService.save(requestDTO, user.getId()); // 게시글 작성 시 세션의 유저 PK를 함께 저장
     }
 
     @PutMapping("/api/v1/posts/{id}")

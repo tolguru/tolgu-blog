@@ -20,10 +20,12 @@
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
-            <th>게시글번호</th>
+            <th>글번호</th>
             <th>제목</th>
             <th>작성자</th>
-            <th>최종수정일</th>
+            <th>작성일</th>
+            <th>조회수</th>
+            <th>좋아요</th>
         </tr>
         </thead>
         <tbody id="tbody">
@@ -33,6 +35,8 @@
                 <td><a href="/posts/update/{{id}}">{{title}}</a></td>
                 <td>{{author}}</td>
                 <td>{{modifiedDate}}</td>
+                <td>{{views}}</td>
+                <td>{{likes}}</td>
             </tr>
         {{/posts}}
         </tbody>

@@ -1,5 +1,7 @@
 package com.tolgu.blog.springboot.service.posts;
 
+import com.tolgu.blog.springboot.config.auth.LoginUser;
+import com.tolgu.blog.springboot.config.auth.dto.SessionUser;
 import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.domain.posts.PostsRepository;
 import com.tolgu.blog.springboot.web.dto.PostsListResponseDTO;
@@ -21,8 +23,8 @@ public class PostsService {
     private final PostsRepository postsRepository; // DAO
 
     @Transactional
-    public Long save(PostsSaveRequestDTO requestDTO) {
-        return postsRepository.save(requestDTO.toEntity()).getId();
+    public Long save(PostsSaveRequestDTO requestDTO, Long authorID) {
+        return postsRepository.save(requestDTO.toEntity(authorID)).getId();
     }
 
     @Transactional
