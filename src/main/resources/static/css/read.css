@@ -24,14 +24,26 @@
 
 .tags {
     color: rgb(24, 24, 24);
-    text-align: center;
 }
 
-.prime {
-    padding-left: 300px;
-    padding-right: 300px;
-    font-size: 14px;
+.prime-read {
+    padding-left: 500px;
+    padding-right: 500px;
 }
-.contents {
-    text-align: center;
+
+.contents-read {
+    font-size: 12px;
+}
+
+.contents-info {
+    font-size: 11px;
+}
+
+.contents-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.button-read {
+    margin-right: 10px;
 }

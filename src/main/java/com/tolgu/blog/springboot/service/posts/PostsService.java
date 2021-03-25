@@ -34,13 +34,14 @@ public class PostsService {
         posts.update(requestDTO.getTitle(), requestDTO.getContent());
 
         return id;
-    } // 왜 repository에 save를 안 하지..??? -> JPA는 영속성 컨텍스트(엔티티 영구 저장) 환경이기 때문에
-    // 트랜잭션 안에서 데이터베이스의 데이터를 가져오면 영구 저장이 유지되기 때문에 가져온 데이터의 값을 변경하면 트랜잭션이 끝나는 시점에
-    // 변경된 부분을 반영한다. 더티 체킹이라고도 한다고 함.
+    }
 
+    @Transactional
     public PostsResponseDTO findById (Long id) {
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+        // 조회와 동시에 조회수 상승. 더티체킹.
+        entity.increaseViews();
         return new PostsResponseDTO(entity);
     }
 

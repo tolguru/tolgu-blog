@@ -28,31 +28,23 @@ public class Posts extends BaseTimeEntity { // 기존 VO(DTO) 역할인 듯
     private int views;
 
     @Column(nullable = false)
-    private int likes;
-
-    @Column(nullable = false)
     private Long authorID;
 
     @Builder
-    public Posts(String title, String content, String author, int views, int likes, Long authorID) {
+    public Posts(String title, String content, String author, int views, Long authorID) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.views = views;
-        this.likes = likes;
         this.authorID = authorID;
     }
 
-    public void update(String title, String content) { // 수정 시 검증해야 함
+    public void update(String title, String content) {
         this.title = title;
         this.content = content;
     }
 
-    public void increaseViews(int views) { // 조건 넣어야 함
+    public void increaseViews() { // 조건 넣어야 함
         this.views = views+1;
-    }
-
-    public void increaseLikes(int likes) { // 조건 넣어야 함
-        this.likes = likes+1;
     }
 }

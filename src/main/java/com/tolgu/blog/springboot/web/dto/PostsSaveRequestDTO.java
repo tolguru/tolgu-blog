@@ -14,7 +14,7 @@ public class PostsSaveRequestDTO {
     private Long authorID;
 
     @Builder
-    public PostsSaveRequestDTO(String title, String  content, String author, int views, int likes, Long authorID) {
+    public PostsSaveRequestDTO(String title, String  content, String author, Long authorID) {
         this.title = title;
         this.content = content;
         this.author = author;

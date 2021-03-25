@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+{{#user}}
+    <div class="main">
+        <div class="picture">
+            <img src={{picture}} width="80" height="80" alt="My Image">
+        </div>
+        <div class="name">
+            <div>
+                <span>{{name}}</span>
+            </div>
+            <div>
+                <span>{{email}}</span>
+            </div>
+        </div>
+        <div>
+            <a href="/logout" class="btn btn-info active" role="button">로그아웃</a>
+        </div>
+    </div>
+{{/user}}
+
+</body>
+</html>

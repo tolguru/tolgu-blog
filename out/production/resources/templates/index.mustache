@@ -1,46 +1,41 @@
 {{>layout/header}}
 
-<h1>Spring Boot Web Site.v7</h1>
-<div class="col-md-12">
-    <div class="row">
-        <div class="col-md-6">
+<div class="top-funcs">
+    <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
+</div>
+
+<div class="prime">
+    <h2 class="introduce">Tolgu Blog</h2>
+    <div class="col-md-12">
+        <!-- 게시글 목록 -->
+        <div class="basic-table">
+            <table class="table table-horizontal table-bordered">
+                <thead class="thead-strong">
+                <tr class="tags">
+                    <th width="50">글번호</th>
+                    <th width="650">제목</th>
+                    <th width="120">작성자</th>
+                    <th width="60">작성일</th>
+                    <th width="50">조회수</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                {{#posts}}
+                    <tr class="contents">
+                        <td>{{id}}</td>
+                        <td align="left"><a href="/posts/read/{{id}}">{{title}}</a></td>
+                        <td>{{author}}</td>
+                        <td>{{createdDate}}</td>
+                        <td>{{views}}</td>
+                    </tr>
+                {{/posts}}
+                </tbody>
+            </table>
+        </div>
+        <div class="bottom-funcs">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-            {{#userName}}
-                Logged in as: <span id="user">{{userName}}</span>
-                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-            {{/userName}}
-            {{^userName}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-            {{/userName}}
         </div>
     </div>
-    <br>
-    <!-- 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered">
-        <thead class="thead-strong">
-        <tr>
-            <th>글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회수</th>
-            <th>좋아요</th>
-        </tr>
-        </thead>
-        <tbody id="tbody">
-        {{#posts}}
-            <tr>
-                <td>{{id}}</td>
-                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
-                <td>{{modifiedDate}}</td>
-                <td>{{views}}</td>
-                <td>{{likes}}</td>
-            </tr>
-        {{/posts}}
-        </tbody>
-    </table>
 </div>
 
 {{>layout/footer}}

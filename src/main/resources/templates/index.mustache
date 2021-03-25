@@ -1,19 +1,8 @@
 {{>layout/header}}
 
-{{#userName}}
-    <div class="top-funcs">
-        <div class="top-profile">
-            <div class="picture">
-                <img src={{userPicture}} width="40" height="40" alt="My Image">
-            </div>
-                <span id="user">{{userName}} / </span>
-                <span>{{userEmail}}</span>
-            <div>
-                <a href="/logout" class="btn btn-info active" role="button">로그아웃</a>
-            </div>
-        </div>
-    </div>
-{{/userName}}
+<div class="top-funcs">
+    <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
+</div>
 
 <div class="prime">
     <h2 class="introduce">Tolgu Blog</h2>
@@ -24,22 +13,20 @@
                 <thead class="thead-strong">
                 <tr class="tags">
                     <th width="50">글번호</th>
-                    <th width="600">제목</th>
+                    <th width="650">제목</th>
                     <th width="120">작성자</th>
                     <th width="60">작성일</th>
                     <th width="50">조회수</th>
-                    <th width="50">좋아요</th>
                 </tr>
                 </thead>
                 <tbody id="tbody">
                 {{#posts}}
                     <tr class="contents">
                         <td>{{id}}</td>
-                        <td align="left"><a href="/posts/update/{{id}}">{{title}}</a></td>
+                        <td align="left"><a href="/posts/read/{{id}}">{{title}}</a></td>
                         <td>{{author}}</td>
-                        <td>{{modifiedDate}}</td>
+                        <td>{{createdDate}}</td>
                         <td>{{views}}</td>
-                        <td>{{likes}}</td>
                     </tr>
                 {{/posts}}
                 </tbody>
