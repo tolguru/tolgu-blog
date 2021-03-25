@@ -5,6 +5,7 @@ import com.tolgu.blog.springboot.config.auth.dto.SessionUser;
 import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.service.posts.PostsService;
 import com.tolgu.blog.springboot.web.dto.PostsResponseDTO;
+import com.tolgu.blog.springboot.web.dto.PostsUpdateResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,10 +47,13 @@ public class IndexController {
     }
 
     @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model) {
-        PostsResponseDTO dto = postsService.findById(id);
-        model.addAttribute("post", dto);
-        return "posts-update";
+    public String postsUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user) {
+        PostsUpdateResponseDTO dto = postsService.findByIdforUpdate(id);
+        if (user.getId().equals(dto.getAuthorID())) {
+            model.addAttribute("post", dto);
+            return "posts-update";
+        }
+        return "posts-error";
     }
 
     @GetMapping("/myprofile")

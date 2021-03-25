@@ -1,4 +1,13 @@
-{{>layout/header}}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/general.css">
+</head>
+<body>
 
 <div class="top-funcs">
     <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
@@ -20,20 +29,39 @@
                 </tr>
                 </thead>
                 <tbody id="tbody">
-                {{#posts}}
-                    <tr class="contents">
-                        <td>{{id}}</td>
-                        <td align="left"><a href="/posts/read/{{id}}">{{title}}</a></td>
-                        <td>{{author}}</td>
-                        <td>{{createdDate}}</td>
-                        <td>{{views}}</td>
-                    </tr>
-                {{/posts}}
+                    {{#posts}}
+                        <tr class="contents">
+                            <td>{{id}}</td>
+                            <td align="left"><a href="/posts/read/{{id}}">{{title}}</a></td>
+                            <td>{{author}}</td>
+                            <td>{{createdDate}}</td>
+                            <td>{{views}}</td>
+                        </tr>
+                    {{/posts}}
                 </tbody>
             </table>
         </div>
-        <div class="bottom-funcs">
-            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+        <div class="page-sort">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="page">
+                            <ul align="center" class="pagination">
+                                <li class="page-item"><a class="page-link" href="/">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="/">1</a></li>
+                                <li class="page-item"><a class="page-link" href="/2">2</a></li>
+                                <li class="page-item"><a class="page-link" href="/3">3</a></li>
+                                <li class="page-item"><a class="page-link" href="/4">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-funcs">
+                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            </div>
         </div>
     </div>
 </div>

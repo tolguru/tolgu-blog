@@ -26,16 +26,12 @@
     color: rgb(24, 24, 24);
 }
 
-.prime-read-write {
+.prime-read {
     padding-left: 500px;
     padding-right: 500px;
 }
 
-.contents {
-    text-align: center;
-}
-
-.contents-read-write {
+.contents-read {
     font-size: 12px;
 }
 
@@ -46,9 +42,6 @@
 .contents-title {
     font-weight: bold;
     font-size: 20px;
-}
-
-.contents-size {
 }
 
 .button-read {

@@ -41,7 +41,7 @@ var main = {
             content: $('#content').val()
         };
 
-        var id = $('#id').val();
+        var id = $("table").data("id");
 
         $.ajax({
             type: 'PUT',
@@ -58,7 +58,7 @@ var main = {
     },
 
     delete : function () {
-        var id = $('#id').val();
+        var id = $("table").data("id")
 
         $.ajax({
             type: 'DELETE',
