@@ -1,0 +1,88 @@
+.introduce {
+    color: rgb(45, 45, 45);
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.top-funcs {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-right: 30px;
+    align: center;
+    text-align: center;
+}
+
+.top-profile {
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+.bottom-funcs {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.tags {
+    color: rgb(24, 24, 24);
+    text-align: center;
+}
+
+.prime {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.contents {
+    text-align: center;
+}
+
+.basic-table {
+}
+
+form.form1 {
+    padding-top: 60px;
+}
+form.form2 {
+    padding-top: 40px;
+}
+
+.Bnaver {
+color: rgb(255, 255, 255);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(25, 206, 96, 0.95);
+padding: 10px 125px;
+border: none;
+border-radius: 5px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 50px;
+text-align: center;
+font-family: 'Ubuntu', sans-serif;
+
+text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    text-decoration: none
+}
+
+.Bgoogle {
+color: rgb(255, 255, 255);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(216, 65, 65, 0.95);
+padding: 10px 120px;
+border: none;
+border-radius: 5px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 50px;
+text-align: center;
+font-family: 'Ubuntu', sans-serif;
+}
