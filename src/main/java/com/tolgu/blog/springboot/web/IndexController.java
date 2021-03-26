@@ -7,6 +7,9 @@ import com.tolgu.blog.springboot.service.posts.PostsService;
 import com.tolgu.blog.springboot.web.dto.PostsResponseDTO;
 import com.tolgu.blog.springboot.web.dto.PostsUpdateResponseDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +22,21 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
+    public String index(@PageableDefault(sort = {"id"},
+            direction = Sort.Direction.DESC,
+            size = 10) Pageable page, Model model) {
+        model.addAttribute("posts", postsService.findPagingDesc(page));
 
-        if (user != null) {
-            model.addAttribute("user", user);
-        }
+        model.addAttribute("page", 0);
+        return "index";
+    }
+
+    @GetMapping("/page")
+    public String indexPage(@PageableDefault(sort = {"id"},
+            direction = Sort.Direction.DESC,
+            size = 10) Pageable page, Model model) {
+        model.addAttribute("posts", postsService.findPagingDesc(page));
+        model.addAttribute("page", page.getPageNumber());
         return "index";
     }
 

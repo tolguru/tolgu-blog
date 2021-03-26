@@ -10,11 +10,11 @@
 <body>
 
 <div class="top-funcs">
-    <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
+    <a class="btn btn-info active" role="button">내정보</a>
 </div>
 
 <div class="prime">
-    <h2 class="introduce">Tolgu Blog</h2>
+    <h2 id="testt" class="introduce">Tolgu Blog</h2>
     <div class="col-md-12">
         <!-- 게시글 목록 -->
         <div class="basic-table">
@@ -46,14 +46,12 @@
                 <div class="row">
                     <div class="col">
                         <div class="page">
-                            <ul align="center" class="pagination">
-                                <li class="page-item"><a class="page-link" href="/">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="/">1</a></li>
-                                <li class="page-item"><a class="page-link" href="/2">2</a></li>
-                                <li class="page-item"><a class="page-link" href="/3">3</a></li>
-                                <li class="page-item"><a class="page-link" href="/4">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <ul align="center" class="pagination" data-page="{{page}}">
+                                <li class="page-item"><a id="one" class="page-link" href="/page?page=0">1</a></li>
+                                <li class="page-item"><a id="two" class="page-link" href="/page?page=1">2</a></li>
+                                <li class="page-item"><a id="three" class="page-link" href="/page?page=2">3</a></li>
+                                <li class="page-item"><a id="four" class="page-link" href="/page?page=3">4</a></li>
+                                <li class="page-item"><a id="five" class="page-link" href="/page?page=4">5</a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,4 +64,10 @@
     </div>
 </div>
 
-{{>layout/footer}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!--buttonfunc.js 추가-->
+<script src="/js/app/index.js"></script>
+</body>
+</html>

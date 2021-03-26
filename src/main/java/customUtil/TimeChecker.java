@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class TimeChecker {
-    private static final DateTimeFormatter FormatTime = DateTimeFormatter.ofPattern("hh:mm");
+    private static final DateTimeFormatter FormatTime = DateTimeFormatter.ofPattern("HH:mm");
     private static final DateTimeFormatter FormatDate = DateTimeFormatter.ofPattern("yy/MM/dd");
 
     public static String sortDate(LocalDateTime localDateTime) {

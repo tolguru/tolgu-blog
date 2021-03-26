@@ -1,15 +1,12 @@
 package com.tolgu.blog.springboot.service.posts;
 
-import com.tolgu.blog.springboot.config.auth.LoginUser;
-import com.tolgu.blog.springboot.config.auth.dto.SessionUser;
 import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.domain.posts.PostsRepository;
 import com.tolgu.blog.springboot.web.dto.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,6 +49,13 @@ public class PostsService {
     @Transactional(readOnly = true)
     public List<PostsListResponseDTO> findAllDesc() {
         return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDTO> findPagingDesc(Pageable page) {
+        return postsRepository.findAll(page).stream()
                 .map(PostsListResponseDTO::new)
                 .collect(Collectors.toList());
     }
