@@ -21,16 +21,6 @@ public class IndexController {
 
     private final PostsService postsService;
 
-//    @GetMapping("/")
-//    public String index(@PageableDefault(sort = {"id"},
-//            direction = Sort.Direction.DESC,
-//            size = 10) Pageable page, Model model) {
-//        model.addAttribute("posts", postsService.findPagingDesc(page));
-//
-//        model.addAttribute("page", 0);
-//        return "index";
-//    }
-
     @GetMapping("/")
     public String indexPage(@PageableDefault(sort = {"id"},
             direction = Sort.Direction.DESC,

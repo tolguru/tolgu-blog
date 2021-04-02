@@ -1,6 +1,9 @@
 body {
     background-color: #F3EBF6;
     font-family: 'Ubuntu', sans-serif;
+    position: relative;
+    width: 1920px;
+    height: 1080px;
 }
 
 .main {

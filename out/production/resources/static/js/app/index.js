@@ -8,7 +8,8 @@ var main = {
         const nowPage = $("#nowPage").data('nowpage');
         let isEndList = false;
         // 하단에 보일 페이지 번호 수
-        let maxPageView = 5;
+        const maxPageView = 5;
+        let pageView = maxPageView;
 
         var pageDivTag = $("#pageButton");
 
@@ -24,17 +25,22 @@ var main = {
             isEndList = true;
 
             // 노출될 페이지 버튼 개수를 나머지로 계산
-            maxPageView = totalPage % maxPageView;
+            pageView = totalPage % maxPageView;
+
             if (totalPage % maxPageView == 0) {
-                maxPageView = maxPageView;
+                pageView = maxPageView;
             }
         }
 
-        for(var i = 1; i <= maxPageView; i++) {
-            pageDivTag.append($('<li class="page-item"><a id="page_'+ i +'" class="page-link"></a></li>'));
+        for(var i = 1; i <= pageView; i++) {
+            pageDivTag.append($('<li id="li_'+ i +'" class="page-item"><a id="page_'+ i +'" class="page-link"></a></li>'));
             $("#page_" + i).text((pageButtonNum + i));
             $("#page_" + i).attr('href', '/?page='+ (pageButtonNum + i - 1) +'');
         }
+
+        // 클릭된 페이지 식별 후 색 변동
+        let clickedButtonId = nowPage % maxPageView + 1;
+        $("#li_" + clickedButtonId).attr('class', 'page-item active');
 
         if (!isEndList) {
             pageDivTag.append($('<li class="page-item"><a class="page-link" href="/?page='+ pageDivision +'"><span>></span></a></li>'));
