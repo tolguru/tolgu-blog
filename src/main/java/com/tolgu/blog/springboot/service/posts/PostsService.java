@@ -4,7 +4,10 @@ import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.domain.posts.PostsRepository;
 import com.tolgu.blog.springboot.web.dto.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,11 +56,17 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
+    // 불러온 데이터를 Index의 게시물 DTO를 List로 만들어 생성자에 전달하며 Paging 정보도 추가로 전달
     @Transactional(readOnly = true)
-    public List<PostsListResponseDTO> findPagingDesc(Pageable page) {
-        return postsRepository.findAll(page).stream()
+    public PostsIndexPageDTO findPagingDesc(Pageable page) {
+        Page<Posts> data = postsRepository.findAll(page);
+        return new PostsIndexPageDTO(data.stream()
                 .map(PostsListResponseDTO::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()),
+                new PostsPagingDTO(data.getTotalPages(),
+                        data.getTotalElements(),
+                        data.getSize(),
+                        page.getPageNumber()));
     }
 
     @Transactional

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 //@Controller
 public class SaveDummyTestController {
 //    private final PostsRepository postsRepository;
-//    private final int DummyCount = 50;
-
-// 사용 시 주의
+//    private final int DummyCount = 500;
+//
+//
 //    @GetMapping("/api/v1/posts/DummyTest")
 //    public String createDummy() {
 //        PostsSaveRequestDTO postsDTO;

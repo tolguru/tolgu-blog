@@ -24,7 +24,7 @@ public class PostsApiController {
         }
 
         if (requestDTO.getAuthorID() == 0L) {
-            return postsService.save(requestDTO, 0L); // 단위테스트, 임시
+            return postsService.save(requestDTO, 0L); // 단위테스트
         }
 
         return -1L;

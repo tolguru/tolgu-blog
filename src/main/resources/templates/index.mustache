@@ -42,21 +42,23 @@
             </table>
         </div>
         <div class="page-sort">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="page">
-                            <ul align="center" class="pagination" data-page="{{page}}">
-                                <li class="page-item"><a id="one" class="page-link" href="/page?page=0">1</a></li>
-                                <li class="page-item"><a id="two" class="page-link" href="/page?page=1">2</a></li>
-                                <li class="page-item"><a id="three" class="page-link" href="/page?page=2">3</a></li>
-                                <li class="page-item"><a id="four" class="page-link" href="/page?page=3">4</a></li>
-                                <li class="page-item"><a id="five" class="page-link" href="/page?page=4">5</a></li>
+            {{#page}}
+            <div class="container" id="totalPage" data-totalPage="{{totalPages}}">
+                <div class="row" id="totalElements" data-totalElements="{{totalElements}}">
+                    <div class="col" id="size" data-size="{{size}}">
+                        <div class="page" id="nowPage" data-nowPage="{{nowPage}}">
+                            <ul align="center" class="pagination" id="pageButton">
+                                <li class="page-item">
+                                    <a id="prev" class="page-link" href="#">
+                                        <span><</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            {{/page}}
             <div class="bottom-funcs">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
             </div>
@@ -66,8 +68,6 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<!--buttonfunc.js 추가-->
 <script src="/js/app/index.js"></script>
 </body>
 </html>

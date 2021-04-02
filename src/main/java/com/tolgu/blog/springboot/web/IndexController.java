@@ -2,8 +2,8 @@ package com.tolgu.blog.springboot.web;
 
 import com.tolgu.blog.springboot.config.auth.LoginUser;
 import com.tolgu.blog.springboot.config.auth.dto.SessionUser;
-import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.service.posts.PostsService;
+import com.tolgu.blog.springboot.web.dto.PostsIndexPageDTO;
 import com.tolgu.blog.springboot.web.dto.PostsResponseDTO;
 import com.tolgu.blog.springboot.web.dto.PostsUpdateResponseDTO;
 import lombok.RequiredArgsConstructor;
@@ -21,22 +21,23 @@ public class IndexController {
 
     private final PostsService postsService;
 
+//    @GetMapping("/")
+//    public String index(@PageableDefault(sort = {"id"},
+//            direction = Sort.Direction.DESC,
+//            size = 10) Pageable page, Model model) {
+//        model.addAttribute("posts", postsService.findPagingDesc(page));
+//
+//        model.addAttribute("page", 0);
+//        return "index";
+//    }
+
     @GetMapping("/")
-    public String index(@PageableDefault(sort = {"id"},
-            direction = Sort.Direction.DESC,
-            size = 10) Pageable page, Model model) {
-        model.addAttribute("posts", postsService.findPagingDesc(page));
-
-        model.addAttribute("page", 0);
-        return "index";
-    }
-
-    @GetMapping("/page")
     public String indexPage(@PageableDefault(sort = {"id"},
             direction = Sort.Direction.DESC,
             size = 10) Pageable page, Model model) {
-        model.addAttribute("posts", postsService.findPagingDesc(page));
-        model.addAttribute("page", page.getPageNumber());
+        PostsIndexPageDTO posts = postsService.findPagingDesc(page);
+        model.addAttribute("posts", posts.getPostsListResponseDTO());
+        model.addAttribute("page", posts.getPostsPagingDTO());
         return "index";
     }
 
