@@ -1,4 +1,4 @@
-package com.tolgu.blog.springboot.domain.posts.user;
+package com.tolgu.blog.springboot.domain.user;
 
 import lombok.Builder;
 import lombok.Getter;

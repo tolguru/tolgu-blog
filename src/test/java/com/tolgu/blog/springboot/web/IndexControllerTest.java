@@ -40,7 +40,7 @@ public class IndexControllerTest {
     // Pageable 테스트 불가. 이후 수정 요망
     @WithMockUser(roles="USER")
     @Test
-    public void 메인페이지_로딩() throws Exception {
+    public void 메인페이지_응답() throws Exception {
 
 //        mvc = MockMvcBuilders.standaloneSetup()
 //                .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())

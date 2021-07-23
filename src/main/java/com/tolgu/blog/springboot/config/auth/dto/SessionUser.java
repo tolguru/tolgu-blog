@@ -1,6 +1,6 @@
 package com.tolgu.blog.springboot.config.auth.dto;
 
-import com.tolgu.blog.springboot.domain.posts.user.User;
+import com.tolgu.blog.springboot.domain.user.User;
 import lombok.Getter;
 
 import java.io.Serializable;

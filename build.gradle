@@ -1,17 +1,19 @@
-plugins {
-    id 'org.springframework.boot' version '2.4.1'
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-    id 'java'
+plugins { // 필요한 플러그인 설치
+    id 'org.springframework.boot' version '2.4.1'  // 스프링 부트 플러그인
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE' // 스프링 부트의 의존성을 관리해주는 플러그인
+    id 'java' // 셋 다 필수 플러그인
 }
 
 group 'com.tolgu.blog'
 version '1.0.1-SNAPSHOT-' + new Date().format("yyyyMMddHHmmss")
 
-repositories {
-    mavenCentral()
-    jcenter()
+repositories { // 의존성(라이브러리)들을 어떤 원격 저장소에서 받을 것인지를 정한다.
+    mavenCentral() // 유명하지만 업로드가 복잡해 인기가 떨어지고 있는 저장소
+    jcenter() // 대세 저장소
 }
 
+// 의존성(라이브러리) 선언, IntelliJ는 메이븐 저장소의 데이터를 인덱싱하기 때문에 라이브러리도 자동완성 기능이 적용됨
+// 버전을 명시하지 않아야 플러그인에 명시한 버전에 맞춰 따라감
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-mustache')

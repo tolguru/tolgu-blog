@@ -1,7 +1,7 @@
 package com.tolgu.blog.springboot.config.auth.dto;
 
-import com.tolgu.blog.springboot.domain.posts.user.Role;
-import com.tolgu.blog.springboot.domain.posts.user.User;
+import com.tolgu.blog.springboot.domain.user.Role;
+import com.tolgu.blog.springboot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 

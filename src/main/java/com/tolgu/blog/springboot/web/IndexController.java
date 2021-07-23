@@ -36,7 +36,7 @@ public class IndexController {
         PostsResponseDTO dto = postsService.findById(id);
         model.addAttribute("post", dto);
 
-        // 유저 ID와 게시자 ID 비교, 같을 시 웹에서 수정, 삭제 버튼을 노출
+        // 유저 ID와 게시자 ID 비교, 같을 시 웹에서 수정, 삭제 버튼을 노출 -> 도메인으로 로직 위치를 변경해야 함. 서비스 -> 도메인으로 변경
         if (user.getId().equals(dto.getAuthorID())) {
             model.addAttribute("user", user.getId());
         }
