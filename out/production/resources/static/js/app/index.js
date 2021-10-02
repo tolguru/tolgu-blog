@@ -1,7 +1,8 @@
 var main = {
     init : function () {
-        const totalPage = $("#totalPage").data('totalpage');
-        const nowPage = $("#nowPage").data('nowpage');
+        const pageInfo = document.querySelector('#page-info');
+        const totalPage = pageInfo.dataset.totalPage;
+        const nowPage = pageInfo.dataset.nowPage;
         // 하단에 보일 페이지 번호 수
         const maxPageView = 5;
         let pageView = maxPageView;
