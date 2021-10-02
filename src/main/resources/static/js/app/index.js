@@ -10,8 +10,6 @@ var main = {
 
         var pageDivTag = $("#page-button");
 
-        // 마지막 페이지 계산
-        const endPage = totalPage - 1;
         // 노출될 페이지 번호를 나타내기 위함
         let pageDivision = parseInt(nowPage / maxPageView + 1) * maxPageView;
         const pageButtonNum = pageDivision - 5;
@@ -24,7 +22,7 @@ var main = {
             // 노출될 페이지 버튼 개수를 나머지로 계산
             pageView = totalPage % maxPageView;
 
-            if (totalPage % maxPageView == 0) {
+            if (totalPage != 0 && totalPage % maxPageView == 0) {
                 pageView = maxPageView;
             }
         }
