@@ -47,7 +47,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void BaseTimeEntity_등록() {
+    public void BaseTimeEntity_등록() { // 이거 h2 꺼도 성공함... 왜지?
         //given
         LocalDateTime now = LocalDateTime.of(2021,3,18,0,0,0);
 

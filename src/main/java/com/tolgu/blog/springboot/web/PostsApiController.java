@@ -19,6 +19,7 @@ public class PostsApiController {
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDTO requestDTO, @LoginUser SessionUser user) {
 
+        //이 불필요한 로직들 개선
         if (user != null) {
             return postsService.save(requestDTO, user.getId()); // 게시글 작성 시 세션의 유저 PK를 함께 저장
         }

@@ -5,12 +5,12 @@ import com.tolgu.blog.springboot.web.dto.PostsSaveRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
+//
 //@RequiredArgsConstructor
 //@Controller
 public class SaveDummyTestController {
 //    private final PostsRepository postsRepository;
-//    private final int DummyCount = 100;
+//    private final int DummyCount = 200;
 //
 //
 //    @GetMapping("/api/v1/posts/DummyTest")

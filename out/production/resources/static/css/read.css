@@ -1,63 +1,41 @@
-body {
-    position: relative;
-    width: 1920px;
-    height: 1080px;
+#article-table {
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
-.introduce {
-    color: rgb(45, 45, 45);
-    text-align: center;
-    padding-bottom: 60px;
-}
-
-.top-funcs {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 20px;
-    padding-right: 120px;
-}
-
-.top-profile {
-    padding-right: 20px;
-    font-size: 16px;
-}
-
-.bottom-funcs {
-    display: flex;
-    justify-content: flex-end;
+#bottom-funcs {
     padding-top: 10px;
+    float: right;
 }
 
-.tags {
+#article-title {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 4px;
+}
+
+#article-info-box {
+    font-size: 14px;
+    margin-top: -6px;
+}
+
+#article-info-name {
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: -2px;
+}
+
+#article-header {
     color: rgb(24, 24, 24);
 }
 
-.prime-read-write {
-    padding-left: 500px;
-    padding-right: 500px;
+#article-content {
+    white-space: pre;
+    font-size: 16px;
 }
 
-.contents {
-    text-align: center;
-}
-
-.contents-read-write {
-    font-size: 12px;
-}
-
-.contents-info {
-    font-size: 11px;
-}
-
-.contents-title {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.contents-size {
-}
-
-.button-read {
-    margin-right: 10px;
-    margin-left: 10px;
+.article-info {
+    float: left;
+    margin-left: 12px;
 }

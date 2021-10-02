@@ -1,48 +1,49 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/read.css">
-</head>
-<body>
-
-<div class="top-funcs">
-    <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
-</div>
-
-<div class="prime-read-write">
-    <h2 class="introduce">Tolgu Blog</h2>
-    <div class="col-md-12">
-        <div class="basic-table">
-            <form>
-                <table class="table table-horizontal table-bordered" data-id="{{post.id}}">
-                    <thead class="thead-strong">
-                        <tr class="content-title">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="title" value="{{post.title}}">
-                            </div>
-                        </tr>
-                        <tr class="content-read">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
-                            </div>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-                        <tr class="contents-size">
-                            <div class="form-group">
-                                <textarea rows="20" class="form-control" id="content">{{post.content}}</textarea>
-                            </div>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-            <button type="button" class="btn btn-info" id="btn-update">수정</button>
-            <a href="/" role="button" class="btn btn-secondary">취소</a>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/general.css">
+        <title>Tolgu Blog</title>
+    </head>
+    <body>
+        <div id="board-skin">
+            <div id="board-body">
+                <div id="board-top-menu">
+                    <a href="/myprofile" class="btn btn-info fr" role="button">내정보</a>
+                </div>
+                <h1 id="homepage-title"><a href="http://ec2-13-125-9-23.ap-northeast-2.compute.amazonaws.com/">Tolgu Blog</a></h1>
+                <form>
+                    <table class="table table-horizontal table-bordered" data-id="{{post.id}}">
+                        <thead class="thead-strong">
+                            <tr>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="title" value="{{post.title}}">
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
+                                </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <div class="form-group">
+                                    <textarea rows="20" class="form-control" id="content">{{post.content}}</textarea>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <button type="button" class="btn btn-info" id="btn-update">수정</button>
+                <a href="/" role="button" class="btn btn-secondary">취소</a>
+            </div>
         </div>
-    </div>
-</div>
 
-{{>layout/footer}}
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="/js/app/update-button.js"></script>
+    </body>
+</html>

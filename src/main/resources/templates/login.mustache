@@ -1,21 +1,30 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="/css/login-page.css">
-    <title>Sign in</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/css/login-page.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+        
+        <title>Tolgu Blog</title>
+    </head>
+    <body>
+        <div id="login-body">
+            <p id="login-label">Log in</p>
+            <div id="sns-login-box">
+                <a href="/oauth2/authorization/google" id="google-login-button"><i class="fa fa-google-plus"></i>  Log in with Google+</a>
+            </div>
+        </div>
 
-<div class="main">
-    <p class="sign" align="center">Sign in</p>
-<!--    <form class="form1">-->
-<!--        <a class="Bnaver" align="center" href="/oauth2/authorization/naver">Naver</a>-->
-<!--    </form>-->
-    <form class="form2">
-        <a class="Bgoogle" align="center" href="/oauth2/authorization/google">Google</a>
-    </form>
-</div>
+        {{! <div class="main">
+            <p class="sign" align="center">Sign in</p>
+        <!--    <form class="form1">-->
+        <!--        <a class="Bnaver" align="center" href="/oauth2/authorization/naver">Naver</a>-->
+        <!--    </form>-->
+            <form class="form2">
+                <a class="Bgoogle" align="center" href="/oauth2/authorization/google">Google</a>
+            </form>
+        </div> }}
 
-{{>layout/footer}}
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

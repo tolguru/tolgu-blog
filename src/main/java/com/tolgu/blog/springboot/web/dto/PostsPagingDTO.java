@@ -1,7 +1,6 @@
 package com.tolgu.blog.springboot.web.dto;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
 public class PostsPagingDTO {

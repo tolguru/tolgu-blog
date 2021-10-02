@@ -1,72 +1,73 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/general.css">
-</head>
-<body>
-<div class="top-funcs">
-    <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
-</div>
-
-<div class="prime">
-    <h2 id="testt" class="introduce">Tolgu Blog</h2>
-    <div class="col-md-12">
-        <!-- 게시글 목록 -->
-        <div class="basic-table">
-            <table class="table table-horizontal table-bordered">
-                <thead class="thead-strong">
-                <tr class="tags">
-                    <th width="50">글번호</th>
-                    <th width="650">제목</th>
-                    <th width="120">작성자</th>
-                    <th width="60">작성일</th>
-                    <th width="50">조회수</th>
-                </tr>
-                </thead>
-                <tbody id="tbody">
-                    {{#posts}}
-                        <tr class="contents">
-                            <td>{{id}}</td>
-                            <td align="left"><a href="/posts/read/{{id}}">{{title}}</a></td>
-                            <td>{{author}}</td>
-                            <td>{{createdDate}}</td>
-                            <td>{{views}}</td>
-                        </tr>
-                    {{/posts}}
-                </tbody>
-            </table>
-        </div>
-        <div>
-            {{#page}}
-            <div class="container" id="totalPage" data-totalPage="{{totalPages}}">
-                <div class="row" id="totalElements" data-totalElements="{{totalElements}}">
-                    <div class="col" id="size" data-size="{{size}}">
-                        <div class="page" id="nowPage" data-nowPage="{{nowPage}}">
-                            <ul align="center" class="pagination" id="pageButton">
-                                <li class="page-item">
-                                    <a id="prev" class="page-link" href="#">
-                                        <span><</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/general.css">
+        <title>Tolgu Blog</title>
+    </head>
+    <body>
+        <div id="board-skin">
+            <div id="board-body">
+                <div id="board-top-menu">
+                    <a href="/myprofile" class="btn btn-info fr" role="button">내정보</a>
+                </div>
+                <h1 id="homepage-title"><a href="http://ec2-13-125-9-23.ap-northeast-2.compute.amazonaws.com/">Tolgu Blog</a></h1>
+                <div id="board-list">
+                    <table>
+                    <colgroup>
+                        <col>
+                        <col style="width:720px">
+                        <col style="width:150px">
+                        <col style="width:65px">
+                        <col style="width:70px">
+                    </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">글번호</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">작성자</th>
+                                <th scope="col">작성일</th>
+                                <th scope="col">조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#posts}}
+                                <tr id="board-contents">
+                                    <td class="td-writing-num">{{id}}</td>
+                                    <td class="td-title"><a href="/posts/read/{{id}}" class="article">{{title}}</a></td>
+                                    <td class="td-author">{{author}}</td>
+                                    <td class="td-date">{{createdDate}}</td>
+                                    <td class="td-views">{{views}}</td>
+                                </tr>
+                            {{/posts}}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="bottom-post-button">
+                    <div class="fr">
+                        <a href="/posts/save" class="btn btn-primary" role="button">글 등록</a>
                     </div>
                 </div>
-            </div>
-            {{/page}}
-            <div class="bottom-funcs">
-                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+                {{#page}}
+                <div id="totalPage" data-totalPage="{{totalPages}}">
+                    <div id="nowPage" data-nowPage="{{nowPage}}">
+                        <ul class="pagination" id="page-button">
+                            <li class="page-item">
+                                <a id="prev" class="page-link" href="#">
+                                    <span><</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {{/page}}
             </div>
         </div>
-    </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="/js/app/index.js"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="/js/app/index.js"></script>
+    </body>
 </html>

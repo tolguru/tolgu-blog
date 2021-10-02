@@ -1,79 +1,48 @@
 body {
     background-color: #F3EBF6;
-    font-family: 'Ubuntu', sans-serif;
-    position: relative;
-    width: 1920px;
-    height: 1080px;
 }
 
-.main {
+a {
+    text-decoration: none;
+}
+
+#login-body {
     background-color: #FFFFFF;
     width: 400px;
-    height: 300px;
+    height: 240px;
     margin: 10em auto;
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
-.sign {
-    padding-top: 60px;
+#sns-login-box {
+    display: flex;
+    flex-direction: column;
+    padding-top: 44px;
+    width: 320px;
+    height: 50px;
+    margin: 0px auto;
+}
+
+#google-login-button {
+    color: rgb(232, 255, 255);
+    border: 1px solid red;
+    width: 320px;
+    height: 50px;
+    padding-top: 13px;
+    text-align: center;
+    background-color: #be3b26;
+    border-color: #be3b26;
+    box-shadow: 0 3px 0 #842719;
+    border-radius: 10px;
+}
+
+#login-label {
+    padding-top: 30px;
     color: #8C55AA;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
+    text-align: center;
 }
 
-form.form1 {
-    padding-top: 60px;
-}
-form.form2 {
-    padding-top: 40px;
-}
-
-.Bnaver {
-color: rgb(255, 255, 255);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(25, 206, 96, 0.95);
-padding: 10px 125px;
-border: none;
-border-radius: 5px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 50px;
-text-align: center;
-font-family: 'Ubuntu', sans-serif;
-}
-
-.Bgoogle {
-color: rgb(255, 255, 255);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(216, 65, 65, 0.95);
-padding: 10px 120px;
-border: none;
-border-radius: 5px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 50px;
-text-align: center;
-font-family: 'Ubuntu', sans-serif;
-}
-
-a {
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
-    text-decoration: none
-}
-
-@media (max-width: 600px) {
-    .main {
-        border-radius: 0px;
-    }
-}

@@ -25,8 +25,8 @@ public class IndexController {
     public String indexPage(@PageableDefault(sort = {"id"},
             direction = Sort.Direction.DESC,
             size = 10) Pageable page, Model model) {
-        PostsIndexPageDTO posts = postsService.findPagingDesc(page);
-        model.addAttribute("posts", posts.getPostsListResponseDTO());
+        PostsIndexPageDTO posts = postsService.findPagingDesc(page); // 나눠야 할 거 같은 느낌이 드네
+        model.addAttribute("posts", posts.getPostsListResponseDTO()); // List로 전달
         model.addAttribute("page", posts.getPostsPagingDTO());
         return "index";
     }
@@ -36,7 +36,6 @@ public class IndexController {
         PostsResponseDTO dto = postsService.findById(id);
         model.addAttribute("post", dto);
 
-        // 유저 ID와 게시자 ID 비교, 같을 시 웹에서 수정, 삭제 버튼을 노출 -> 도메인으로 로직 위치를 변경해야 함. 서비스 -> 도메인으로 변경
         if (user.getId().equals(dto.getAuthorID())) {
             model.addAttribute("user", user.getId());
         }

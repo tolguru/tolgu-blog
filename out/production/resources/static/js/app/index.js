@@ -1,17 +1,14 @@
 var main = {
     init : function () {
-        var _this = this;
-
         const totalPage = $("#totalPage").data('totalpage');
-        const totalElements = $("#totalElements").data('totalelements');
-        const size = $("#size").data('size');
         const nowPage = $("#nowPage").data('nowpage');
-        let isEndList = false;
         // 하단에 보일 페이지 번호 수
         const maxPageView = 5;
         let pageView = maxPageView;
 
-        var pageDivTag = $("#pageButton");
+        let isEndList = false;
+
+        var pageDivTag = $("#page-button");
 
         // 마지막 페이지 계산
         const endPage = totalPage - 1;

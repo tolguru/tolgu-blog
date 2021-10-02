@@ -1,65 +1,72 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/general.css">
+        <link rel="stylesheet" href="/css/read.css">
+        <title>Tolgu Blog</title>
+    </head>
+    <body>
+        <div id="board-skin">
+            <div id="board-body">
+                <div id="board-top-menu">
+                    <a href="/myprofile" class="btn btn-info fr" role="button">내정보</a>
+                </div>
+                <h1 id="homepage-title"><a href="http://ec2-13-125-9-23.ap-northeast-2.compute.amazonaws.com/">Tolgu Blog</a></h1>
+                <div id="article-table">
+                    <table class="table table-horizontal table-bordered" data-id="{{id}}">
+                        {{#post}}
+                            <thead class="thead-strong">
+                                <tr class="article-header">
+                                    <td>
+                                        <div id="article-title">{{title}}</div><br>
+                                        <div id="article-info-box">
+                                            <div id="article-info-name">{{author}}</div>
+                                            <div class="article-info">{{createdDate}}</div>
+                                            <div class="article-info">조회수 : {{views}}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="article-content">{{content}}</td>
+                                </tr>
+                            </tbody>
+                        {{/post}}
+                    </table>
+                    <div id="bottom-funcs">
+                        {{#user}}
+                        <a href="/posts/update/{{id}}" role="button" class="btn btn-info">수정</a>
+                        <button type="button" id="btn-delete" class="btn btn-dark">삭제</button>
+                        {{/user}}
+                        <a href="/" role="button" class="btn btn-secondary">목록</a>
+                    </div>
+                    <!-- 라이브리 시티 설치 코드 -->
+                    <div id="lv-container" data-id="city" data-uid="MTAyMC81MzEzNS8yOTYxMQ==">
+                        <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/read.css">
-</head>
-<body>
+                            if (typeof LivereTower === 'function') { return; }
 
-<div class="top-funcs">
-    <a href="/myprofile" class="btn btn-info active" role="button">내정보</a>
-</div>
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
 
-<div class="prime-read-write">
-    <h2 class="introduce">Tolgu Blog</h2>
-    <div class="col-md-12">
-        <div class="basic-table">
-            <table class="table table-horizontal table-bordered" data-id="{{id}}">
-                {{#post}}
-                    <thead class="thead-strong">
-                        <tr class="tags">
-                            <td><a class="contents-title">{{title}}</a><br>
-                                <a class="contents-read">{{author}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    {{createdDate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                <a class="contents-info">조회수 : {{views}}</a>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-                        <tr class="content-size">
-                            <td style="white-space:pre;" class="content-read-write">{{content}}</td>
-                        </tr>
-                    </tbody>
-                {{/post}}
-            </table>
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                        </script>
+                    </div>
+                    <!-- 시티 설치 코드 끝 -->
+                </div>
+            </div>
         </div>
-        <div class="bottom-funcs">
-            {{#user}}
-                <a href="/posts/update/{{id}}" role="button" class="btn btn-info">수정</a>
-                <a class="button-read"><button type="button" class="btn btn-dark" id="btn-delete">삭제</button></a>
-            {{/user}}
-            <a href="/" role="button" class="btn btn-secondary">목록</a>
-        </div>
-        <!-- 라이브리 시티 설치 코드 -->
-        <div id="lv-container" data-id="city" data-uid="MTAyMC81MzEzNS8yOTYxMQ==">
-            <script type="text/javascript">
-               (function(d, s) {
-                   var j, e = d.getElementsByTagName(s)[0];
 
-                   if (typeof LivereTower === 'function') { return; }
-
-                   j = d.createElement(s);
-                   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                   j.async = true;
-
-                   e.parentNode.insertBefore(j, e);
-               })(document, 'script');
-            </script>
-        </div>
-        <!-- 시티 설치 코드 끝 -->
-    </div>
-</div>
-
-{{>layout/footer}}
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="/js/app/read-button.js"></script>
+    </body>
+</html>
