@@ -51,17 +51,13 @@
                     </div>
                 </div>
                 {{#page}}
-                <div id="totalPage" data-totalPage="{{totalPages}}">
-                    <div id="nowPage" data-nowPage="{{nowPage}}">
-                        <ul class="pagination" id="page-button">
-                            <li class="page-item">
-                                <a id="prev" class="page-link" href="#">
-                                    <span><</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                    <ul class="pagination" id="page-button">
+                        <li class="page-item"><a id="prev" class="page-link" href="#">
+                                <span><</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="page-info" data-total-page="{{totalPages}}" data-now-page="{{nowPage}}"></div>
                 {{/page}}
             </div>
         </div>
