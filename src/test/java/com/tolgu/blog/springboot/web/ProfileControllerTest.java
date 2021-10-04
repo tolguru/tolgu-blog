@@ -23,7 +23,7 @@ public class ProfileControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void profile은_인증없이_호출된다() throws Exception {
+    public void profile_호출() throws Exception {
         String expected = "default";
 
         ResponseEntity<String> response = restTemplate.getForEntity("/profile", String.class);

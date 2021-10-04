@@ -22,10 +22,9 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String indexPage(@PageableDefault(sort = {"id"},
-            direction = Sort.Direction.DESC,
-            size = 10) Pageable page, Model model) {
-        PostsIndexPageDTO posts = postsService.findPagingDesc(page); // 나눠야 할 거 같은 느낌이 드네
+    public String indexPage(@PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC, size = 10) Pageable page,
+                            Model model) {
+        PostsIndexPageDTO posts = postsService.findPagingDesc(page);
         model.addAttribute("posts", posts.getPostsListResponseDTO()); // List로 전달
         model.addAttribute("page", posts.getPostsPagingDTO());
         return "index";

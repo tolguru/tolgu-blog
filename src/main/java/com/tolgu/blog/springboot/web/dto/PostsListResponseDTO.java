@@ -20,6 +20,6 @@ public class PostsListResponseDTO {
         this.author = entity.getAuthor();
         this.views = entity.getViews();
         this.authorID = entity.getAuthorID();
-        createdDate = TimeChecker.sortDate(entity.getCreatedDate());
+        createdDate = TimeChecker.transeDateForm(entity.getCreatedDate());
     }
 }

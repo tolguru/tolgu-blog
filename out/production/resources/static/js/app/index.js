@@ -12,8 +12,9 @@ var main = {
         var pageDivTag = $("#page-button");
 
         // 노출될 페이지 번호를 나타내기 위함
-        let pageDivision = parseInt(nowPage / maxPageView + 1) * maxPageView;
-        const pageButtonNum = pageDivision - 5;
+        let divisionCount = parseInt(nowPage / maxPageView + 1);
+        let pageDivision = divisionCount * maxPageView;
+        const pageButtonNum = pageDivision - maxPageView;
 
         // 마지막 페이지가 현재 구간보다 작을 시 최대 페이지로 설정해서 마지막 페이지까지만 표시
         if (totalPage <= pageDivision) {
@@ -42,11 +43,11 @@ var main = {
             pageDivTag.append($('<li class="page-item"><a class="page-link" href="/?page='+ pageDivision +'"><span>></span></a></li>'));
         }
 
-        if (nowPage < 5) {
+        if (nowPage < maxPageView) {
             $("#prev").remove();
         }
         else {
-            $("#prev").attr('href', '/?page='+ (pageDivision - maxPageView - 1) +'');
+            $("#prev").attr('href', '/?page='+ ((divisionCount - 1) * maxPageView - 1) +'');
         }
     }
 };

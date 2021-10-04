@@ -47,4 +47,8 @@ public class User {
     public String getRoleKey() {
         return this.role.getKey();
     }
+
+    public void setTestId() {
+        this.id = -1L;
+    }
 }

@@ -1,8 +1,11 @@
 package com.tolgu.blog.springboot.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tolgu.blog.springboot.config.auth.dto.SessionUser;
 import com.tolgu.blog.springboot.domain.posts.Posts;
 import com.tolgu.blog.springboot.domain.posts.PostsRepository;
+import com.tolgu.blog.springboot.domain.user.Role;
+import com.tolgu.blog.springboot.domain.user.User;
 import com.tolgu.blog.springboot.web.dto.PostsSaveRequestDTO;
 import com.tolgu.blog.springboot.web.dto.PostsUpdateRequestDTO;
 import org.junit.jupiter.api.AfterEach;
@@ -14,12 +17,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -61,7 +66,7 @@ public class PostsApiControllerTest {
 
     @Test
     @WithMockUser(roles = "USER")
-    public void Posts_등록된다() throws Exception {
+    public void Posts_등록() throws Exception {
         //given
         String title = "title";
         String content = "content";
@@ -74,10 +79,22 @@ public class PostsApiControllerTest {
 
         String url = "http://localhost:" + port + "/api/v1/posts";
 
+        User user = User.builder() // id가 없어서 에러나는 듯
+                .name("test")
+                .email("test")
+                .picture("test")
+                .role(Role.USER)
+                .build();
+
+        user.setTestId();
+
         mvc.perform(post(url)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(new ObjectMapper().writeValueAsString(requestDTO)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(requestDTO))
+                        .sessionAttr("user", new SessionUser(user)))
                 .andExpect(status().isOk());
+
+
 
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
@@ -86,7 +103,7 @@ public class PostsApiControllerTest {
 
     @Test
     @WithMockUser(roles = "USER")
-    public void Posts_수정된다() throws Exception {
+    public void Posts_수정() throws Exception {
         //given
         Posts savedPosts = postsRepository.save(Posts.builder()
                 .title("title")
